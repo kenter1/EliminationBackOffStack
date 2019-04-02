@@ -17,12 +17,12 @@
     performs better than the other, be sure to explain why.
 
     Additional Instructions:
-    ● In your benchmark tests, vary the number of threads from 1 to 32 and produce graphs where
+    In your benchmark tests, vary the number of threads from 1 to 32 and produce graphs where
     you map the total execution time on the y-axis and the number of threads on the x-axis.
     Produce at least 3 different graphs representing different ratios of the invocation of push,
     pop, and size.
 
-    ● In your benchmark tests, the total execution time should begin prior to spawning threads
+    In your benchmark tests, the total execution time should begin prior to spawning threads
     and end after all threads complete. All nodes and random bits should be generated before
     the total execution time begins (if necessary).
 * */
@@ -38,7 +38,7 @@ public class Main {
 
         //Mode 0 all push, 1 all pop, 2 1:1 push and pop
 
-        int executions = 100000;
+        int executions = 1000000;
         Long start = 0L;
         Long stop = 0L;
         int mode = -1;
@@ -51,7 +51,8 @@ public class Main {
             mode = Integer.parseInt(args[0]);
             threadCount = Integer.parseInt(args[1]);
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Missing Inputs: (mode: 0 all push, 1 all pop, 2 1:1 push pop) (Thread Count) (mode: 0 Elimination Back Off stack, 1: Assignment 2 Lock Free Stack)");
+            System.out.println("Sample input: java Main 2 32 0");
         }
 
         if(mode == -1 || threadCount == -1){
